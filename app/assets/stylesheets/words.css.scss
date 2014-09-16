@@ -1,3 +1,116 @@
 // Place all the styles related to the Words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+h1.main_heading{
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 4em;
+  color: darkgray;
+
+}
+
+div.form_container{
+  text-align: center;
+}
+
+div.input_container{
+  margin: 100px auto;
+}
+
+input:focus{
+  outline:none;
+  autofocus:autofocus;
+}
+
+input.handle_field{
+  display: block;
+  font-size: 28px !important;
+  text-align: center;
+  font-weight: bold !important;
+  width: 350px !important;
+}
+
+input.description_input{
+  color: #1bb2e9;
+  margin: 0 20px;
+  position: relative;
+  font-size: 34px;
+  width: 220px;
+  // width: 55%;
+  // min-width: 35%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  background-color: transparent;
+  border: 0px solid;
+  border-bottom: 1px solid #929cb1;
+}
+span.at_symbol{
+  font-size: 60px;
+  color: darkgray;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+}
+
+// search
+
+#search {
+  border-radius: 100px;
+  border: 1px solid #CCC;
+  padding: 5px;
+  width: 300px;
+  outline: 0;
+}
+
+.counter {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+
+.ui-autocomplete {
+  max-height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  background: #EEE;
+}
+
+.ui-menu-item {
+  font-size: 13px;
+  height: 56px;
+  cursor: pointer;
+  list-style: none;
+  a {
+    margin: 2px;
+    display: block;
+    height: 48px;
+    border-radius: 4px;
+    padding: 4px;
+    &.ui-state-hover {
+      background: #CCC;
+    }
+    img {
+      float: left;
+      margin-right: 3px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+.wrapper {
+  text-align: center;
+  margin-top: 100px;
+}

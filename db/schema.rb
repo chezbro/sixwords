@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909215158) do
+ActiveRecord::Schema.define(version: 20140915193807) do
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
+    t.string   "email",                  default: ""
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20140909215158) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "image"
+    t.string   "handle"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -36,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140909215158) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "made_by"
   end
 
 end

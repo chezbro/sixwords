@@ -1,25 +1,26 @@
-<%= form_for(@word) do |f| %>
-  <% if @word.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@word.errors.count, "error") %> prohibited this word from being saved:</h2>
-
-      <ul>
-      <% @word.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="form_container">
+  <%= form_for(@word) do |f| %>
+    <% if @word.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@word.errors.count, "error") %> prohibited this word from being saved:</h2>
+        <ul>
+        <% @word.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="input_container">
+        <%= f.text_field :description, class:"inputs", multiple: true, autofocus:true, size:75,class:"description_input" %>
+        <%= f.text_field :description, class:"inputs", multiple: true, autofocus:true, size:75,class:"description_input" %>
+        <%= f.text_field :description, class:"inputs", multiple: true, autofocus:true, size:75,class:"description_input" %>
+        <%= f.text_field :description, class:"inputs", multiple: true, autofocus:true, size:75,class:"description_input" %>
+        <%= f.text_field :description, class:"inputs", multiple: true, autofocus:true, size:75,class:"description_input" %>
+        <%= f.text_field :description, class:"inputs", multiple: true, autofocus:true, size:75,class:"description_input" %>
+        <%= f.text_field :user_id, style:"margin: 100px auto 0 auto;", class:"description_input handle_field", placeholder:"i.e. @echezbro", autofocus:true %>
     </div>
+      <div class="actions">
+        <%= f.submit "Add 6Words", class:"twitter" %>
+      </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

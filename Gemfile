@@ -36,7 +36,7 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
 gem 'bundler'
 
@@ -44,8 +44,15 @@ gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'twitter'
 gem 'google-analytics-rails'
 gem 'rails_config'
 gem 'validates_formatting_of'
 gem 'tzinfo-data'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'haml-rails'
+gem "nested_form"
+gem 'font-awesome-sass', '~> 4.2.0'
+gem "simple_form"

@@ -5,6 +5,7 @@ class WordsController < ApplicationController
   # GET /words.json
   def index
     @words = Word.all
+
   end
 
   # GET /words/1
@@ -15,6 +16,7 @@ class WordsController < ApplicationController
   # GET /words/new
   def new
     @word = Word.new
+    # @user = User.new
   end
 
   # GET /words/1/edit
@@ -23,9 +25,31 @@ class WordsController < ApplicationController
 
   # POST /words
   # POST /words.json
+
   def create
     @word = Word.new(word_params)
-
+    user = params["word"]["user_id"].gsub(/\W/, "")
+    if User.find_by_handle(user)
+      @word.user = User.find_by_handle(user)
+      @word.made_by = current_user
+    else
+      user = User.new
+      user_id_stripped = params["word"]["user_id"].gsub(/\W/, "")
+      user.handle = user_id_stripped
+      user.email = "#{user}@example.com"
+      user.password = "password"
+      user.save!
+      @word.user = user
+      @word.made_by = current_user
+      # current user doesn't work, current_user.id returns integer i.e. 8
+    end
+    array = params["word"]["description"]
+    array = array.join(' ')
+    @word.description = array
+    # d = description.downcase.gsub /\W+/, ' '
+    if array.split.size > 6
+      return redirect_to new_word_path, notice: "6Words Max!"
+    end
     respond_to do |format|
       if @word.save
         format.html { redirect_to @word, notice: 'Word was successfully created.' }
@@ -51,6 +75,11 @@ class WordsController < ApplicationController
     end
   end
 
+  def tweet_example
+    current_user.tweet("testing")
+    redirect_to new_word_path, notice: "success"
+  end
+
   # DELETE /words/1
   # DELETE /words/1.json
   def destroy
@@ -61,6 +90,7 @@ class WordsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_word
@@ -69,6 +99,6 @@ class WordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def word_params
-      params.require(:word).permit(:description, :user_id)
+      params.require(:word).permit(:user, :user_id, :made_by, :description => [])
     end
 end

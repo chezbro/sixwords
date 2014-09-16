@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <%= link_to "My Application", defined?(root_path) ? root_path : "#", class: "navbar-brand" %>
+    <%= link_to "6Words.", defined?(root_path) ? root_path : "#", class: "navbar-brand" %>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,8 +26,8 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Login", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Login", user_omniauth_authorize_path(:twitter) %></li>
+<!--           <li><#%= link_to "Sign Up", new_user_registration_path %></li> -->
         <% end %>
       <% end %>
     </ul>

@@ -1,0 +1,5 @@
+<h1>@<%= link_to @user.handle, "http://www.twitter.com/#{@user.handle}",  :target => "_blank" %></h1>
+<% @user.words.each do |word| %>
+  <li><%= word.description %></li>
+<% end %>
+<%= link_to "Add 6Words for #{@user.handle}", new_word_path %>

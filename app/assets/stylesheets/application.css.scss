@@ -19,6 +19,21 @@
 
 @import "bootstrap";
 
+@import "font-awesome-sprockets";
+
+@import "font-awesome";
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+// MAIN
+
+.body_class{
+  top:240px;
+  position: relative;
+}
+
 //->Prelang (ui_framework:twitter_bootstrap)
 
 // Give everything in 'yield' margin to separate it.

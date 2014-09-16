@@ -3,11 +3,12 @@
 <p>
   <strong>Description:</strong>
   <%= @word.description %>
+
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @word.user_id %>
+  <%= link_to "#{@word.user.handle}", user_path(@word.user.id) %>
 </p>
 
 <%= link_to 'Edit', edit_word_path(@word) %> |

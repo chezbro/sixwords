@@ -1,11 +1,15 @@
-class Users::SessionsController < Devise::SessionsController
+class Users::SessionsController < ApplicationController
   include ApplicationHelper
 
-  def create
-    super
-  end
+  # def create
+  #   auth = request.env["omniauth.auth"]
+  #   user = User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
+  #   session[:user_id] = user.id
+  #   redirect_to root_url, :notice => "Signed in!"
+  # end
 
-  def new
-    super
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_url, :notice => "Signed out!"
   end
 end
